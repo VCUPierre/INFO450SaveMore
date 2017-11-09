@@ -11,19 +11,32 @@ CDAct::CDAct()
 }
 CDAct::CDAct(double aBal, double iRate) : BankAccount(aBal) {
 	actBal = aBal;
-	yrCreation = BankAccount::dateCreated.wYear;
+	yrCreation = BankAccount::OpenDate.wYear;
 	iRate = iRate;
 }
 void CDAct::Display() {
 	cout << "*** Account Number: " << actNum << " ***" << endl;
+	cout << "Date opened: "<<OpenDate.wMonth<<"/"<<OpenDate.wDay<<"/"<<OpenDate.wYear << endl;
 	cout << "Total Balance: " << actBal << endl;
 	cout << "Current term: "<< term << endl;
 	cout << "Current Intrest Rate: "<< iRate << endl;
 }
 double CDAct::AssesIntrest(int t, double aBal) 
 {
+	int months = 12;
+	double Fvalue = 0.0;
+
+	Fvalue = (aBal * pow((1 + iRate / months), (months*t)));
+
+	cout << "***Account number: " << actNum << endl;
+	cout << "Starting Balance: " << aBal << endl;
+	cout << "Future Balance: " << Fvalue << endl;
+
+	aBal = Fvalue;
+
 	return aBal;
 }
+	
 double CDAct::Withdraw(double aBal, double amt) {
 	double Fee = .10;
 	if (yrCreation < term)
@@ -42,17 +55,6 @@ double CDAct::Withdraw(double aBal, double amt) {
 }
 int CDAct::CalTerm(int yC, int t) 
 {
+	t = yrCreation;
 	return t;
 }
-/*void CDAct::GetData() {
-	cout << "Please enter Book:" << endl;
-	getline(cin, title);
-	cout << "Please enter Author:" << endl;
-	getline(cin, author);
-	cout << "Please enter ISBN:" << endl;
-	getline(cin, ISBN);
-	cout << "Please enter the price" << endl;
-	getline(cin, cost);
-	cout << "Please enter number of pages:" << endl;
-	cin >> pages;
-}*/

@@ -8,16 +8,37 @@ using namespace std;
 CheckingAct::CheckingAct() {
 	//default construct
 }
-CheckingAct::CheckingAct(double aBal, int checks) : BankAccount(aBal) 
+CheckingAct::CheckingAct(double aBal) : BankAccount(aBal) 
 {
-
+	actBal = aBal;
+	onHandChecks = 0;
 }
 double CheckingAct::BalChecker(int aBal)
 {
+	double Fee = 5.00;
+	if (aBal < 500) 
+	{
+		cout << "****Account Number: "<<actNum<< endl;
+		cout << "Balance ("<<aBal<<") fell below $500. A fee of $"<<Fee<< " will be added" << endl;
+		aBal -= Fee;
+	}
+
 	return aBal;
 }
 int CheckingAct::GetChecks(int checks) 
 {
+	double checkFee = 15.00;
+	int input;
+	cout << "Number of checks?" << endl;
+	cin >> input;
+	cin.ignore();
+	cin.clear();
+	cout << "***Account Number: "<<actNum<< endl;
+	cout << "Purchased ("<<input<<") checks, for $"<<checkFee<<" each."<< endl;
+	checks = input;
+	actBal -= (input*checkFee);
+	cout << "New Account Balance: "<< actBal << endl;
+
 	return checks;
 }
 double CheckingAct::Withdraw(double aBal, double amt) {
@@ -29,31 +50,7 @@ double CheckingAct::Withdraw(double aBal, double amt) {
 void CheckingAct::Display() 
 {
 	cout << "*** Account Number: " << actNum << " ***" << endl;
+	cout << "Date opened: " << OpenDate.wMonth << "/" << OpenDate.wDay << "/" << OpenDate.wYear << endl;
 	cout << "Total Balance: " << actBal << endl;
 	cout << "Total books of Checks: "<< onHandChecks << endl;
 }
-/*CheckingAct::CheckingAct(string t, string a, double c, string i, int m) : Publication(t, a, c, i) {
-	minutes = m;
-}
-void CheckingAct::Display() {
-	cout << "Title: " << title << " Author: " << author << " cost: " << cost << endl;
-	cout << "ISBN: " << ISBN << " minutes: " << minutes << endl;
-}
-void CheckingAct::GetData() {
-	cout << "Please enter Book:" << endl;
-	getline(cin, title);
-	cout << "Please enter Author:" << endl;
-	getline(cin, author);
-	cout << "Please enter ISBN:" << endl;
-	getline(cin, ISBN);
-	cout << "Please enter price" << endl;
-	/*getline(cin, cost);
-	cout << "Please enter number of minutes:" << endl;
-	cin >> minutes;
-}
-ostream& operator<<(ostream &out, Audio &a) {
-	out << "Title is " << a.title << endl;
-	out << "Author is " << a.author << endl;
-	out << "ISBN is " << a.ISBN << endl;
-	return out;
-}*/

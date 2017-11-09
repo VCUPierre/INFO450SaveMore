@@ -6,7 +6,7 @@ private:
 	int onHandChecks;
 public:
 	CheckingAct();
-	CheckingAct(double aBal, int checks);
+	CheckingAct(double aBal);
 	double Withdraw(double aBal, double amt);
 	double BalChecker(int aBal);
 	int GetChecks(int checks);

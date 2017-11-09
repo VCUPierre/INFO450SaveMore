@@ -1,3 +1,8 @@
-﻿  CDAct.cpp
+﻿  SavingAct.cpp
+c:\users\bsx54366\desktop\savemore\savemore\savingact.cpp(49): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\bsx54366\desktop\savemore\savemore\savingact.cpp(52): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  CheckingAct.cpp
+c:\users\bsx54366\desktop\savemore\savemore\checkingact.cpp(23): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
   SaveMore.vcxproj -> C:\Users\bsx54366\Desktop\SaveMore\Debug\SaveMore.exe
   SaveMore.vcxproj -> C:\Users\bsx54366\Desktop\SaveMore\Debug\SaveMore.pdb (Partial PDB)

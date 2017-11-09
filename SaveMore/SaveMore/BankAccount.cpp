@@ -12,7 +12,7 @@ BankAccount::BankAccount(double aBal) {
 	int actNum = BankAccount::numGenerator;
 	double actBal = aBal;
 	BankAccount::numGenerator++;
-	GetLocalTime(&dateCreated);
+	GetLocalTime(&OpenDate);
 }
 double BankAccount::Withdraw(double aBal, double amt)
 {
